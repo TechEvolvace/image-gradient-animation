@@ -5,6 +5,20 @@ body{
     align-items: center;
 }
 
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: midnightblue;
+    color: white;
+    font-size: 2.5rem;
+    margin: 3px;
+    padding: 3px;
+    width: 100vw;
+    height: 10vh; 
+    flex: 1 1 auto; 
+}
+
 /* Main element has black background color that must be placed behind the gradient animation 
     Thus, it's z-index must be less than the z-index used for the gradient animation!*/
 main{
@@ -15,8 +29,22 @@ main{
     margin: 3px;
     padding: 5px;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     z-index: -2;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: midnightblue;
+    color: white;
+    font-size: 2.5rem;
+    margin: 3px;
+    padding: 3px;
+    width: 100vw;
+    height: 10vh;
+    flex: 1 1.5 auto;
 }
 
 /* This is a gallery showcasing the images in this website! */

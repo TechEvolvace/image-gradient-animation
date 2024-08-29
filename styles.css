@@ -1,3 +1,4 @@
+/* Designed the body element */
 body{
     display: flex;
     justify-content: center;
@@ -5,6 +6,7 @@ body{
     align-items: center;
 }
 
+/* Designed the navigation bar element */
 nav{
     display: flex;
     justify-content: center;
@@ -33,6 +35,7 @@ main{
     z-index: -2;
 }
 
+/* Designed the footer element */
 footer{
     display: flex;
     justify-content: center;
@@ -65,36 +68,48 @@ footer{
     position: relative; 
 }
 
+/* CSS Property variable --angle */
 @property --angle{
-    syntax: "<angle>";
-    inherits: true;
-    initial-value: 0deg;
+    syntax: "<angle>"; /* Only accept angle values */
+    inherits: true; /* Any subsequent value changes to the --angle value will be the current --angle value! */
+    initial-value: 0deg; /* Start of gradient animation start at 0 degrees! */
 }
 
 /* Must place the gradient behind the image, so the gradient's z-index must be less than the image's default z-index of 0! */
 .box::before,
 .box::after{
-    content: '';
+    content: ''; /* Needed to contain the box that will be the gradient animation */
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Match the size of the image's width */
+    height: 100%; /* Match the size of the image's height */
     border-radius: inherit;
+
+    /* Specifies the color to use for the animation at each angle in the image!  */
     background-image: conic-gradient(
         from var(--angle), #11b72d, #001bf1, #11b72d
     );
+
+    /* Specifies duration, type, and rate of the animation for the gradient animation! */
     animation: autoRotate 2s linear infinite;
+
+    /* *Ensures that the box with the blur is aligned with the image's gradient animation! */
     top: 50%;
     left: 50%;
-    --angle: 0deg;
     transform: translate(-50%, -50%);
+
+    /* Keep the gradient animation behind the image, which the image's z-index defaults at 0 */
     z-index: -1;
-    padding: 8px;
+
+    /* Ensures that we can see gradient animation behind the image by adding area inside the gradient animation to make the gradient animation bigger than the image! */
+    padding: 10px;
 }
 
+/* Adds a blur effect to the gradient animation for a smoother transition of colors! */
 .box::after{
     filter: blur(60px);
 }
 
+/* Keyframe property that dictates from which angle to another angle, will the rotation animation be conducted! */
 @keyframes autoRotate{
     to{
         --angle: 360deg;
